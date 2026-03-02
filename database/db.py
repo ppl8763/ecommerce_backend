@@ -1,7 +1,8 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
-
-MONGO_URI= "mongodb+srv://Amit:Amit@cluster0.modflkm.mongodb.net/"
+from dotenv import load_dotenv
+load_dotenv() 
+MONGO_URI= os.getenv("MONGO_URI")
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["ecommerce_db"]
 user_collection = db["user"]

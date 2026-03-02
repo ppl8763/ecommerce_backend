@@ -67,11 +67,12 @@ def getting(cur_user:dict=Depends(role_required("admin"))):
             }
 
 @router.get("/user/{email}")
-async def users(email:str,cur_user:dict=Depends(role_required("user"))):
-    res =await user_collection.find_one({"email":email})
-    res
-    return {"message":"hello user",
-            "email":cur_user["email"],
-            "phone":cur_user["phone"]
-            }
+async def users(email: str, cur_user: dict = Depends(role_required("user"))):
+    res = await user_collection.find_one({"email": email})
+
+    if not res:
+        return {"message": "User not found"}
+
+    res["_id"] = str(res["_id"])   # convert ObjectId to string
+    return res
 
