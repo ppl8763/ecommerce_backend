@@ -5,7 +5,7 @@ python-dotenv
 python-jose[cryptography]
 passlib[bcrypt]
 razorpay
-imagekitio
+imagekitio==4.1.0
 python-multipart
 pydantic
 pydantic[email]
