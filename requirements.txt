@@ -8,3 +8,4 @@ razorpay
 imagekitio
 python-multipart
 pydantic
+pydantic[email]
